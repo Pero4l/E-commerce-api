@@ -22,3 +22,10 @@ function writeDb(data){
         console.error("Error writing file:", err)
     }
 }
+
+
+
+module.exports = {
+    readDb,
+    writeDb
+}
