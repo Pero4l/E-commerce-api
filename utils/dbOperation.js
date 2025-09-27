@@ -14,3 +14,11 @@ function readDb(){
     }
 }
 
+
+function writeDb(data){
+    try{
+        fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
+    } catch (err){
+        console.error("Error writing file:", err)
+    }
+}
