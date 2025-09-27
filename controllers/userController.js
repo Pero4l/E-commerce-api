@@ -40,7 +40,7 @@ async function register(req, res){
     const role = "user"
     const date = new Date().toLocaleDateString('en-CA');
 
-    const newUser = {id, name, email, role, password: hashedPassword, date}
+    const newUser = {id, name, email, role, password: hashedPassword, date, notifications: []}
 
     data['users'].push(newUser)
     writeDb(data)
