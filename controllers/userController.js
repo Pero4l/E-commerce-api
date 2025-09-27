@@ -19,7 +19,7 @@ async function register(req, res){
             message: "Password must be at least 6 characters"
         });
 
-    } else if ( !/[A-Z]/.test(password) && !/[a-z]/.test(password)){
+    } else if ( !/[A-Z]/.test(password) || !/[a-z]/.test(password)){
          return res.status(400).json({
             message: "Password must contain both uppercase and lowercase letters"
         });
@@ -58,6 +58,7 @@ async function register(req, res){
 
 
 async function login(req, res) {
+
     const token = jwt.sign({userId: req.data.id}, process.env.JWT_SECRET, {expiresIn: '1h'})
 
     const userId = req.data.id

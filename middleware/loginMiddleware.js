@@ -7,7 +7,7 @@ async function loginMiddleware(req, res, next){
     const data = readDb()
     const existUser = data['users'].find((u) => u.email === email)
 
-    if (!userExist) {
+    if (!existUser) {
         return res.status(401).json({
             success: false,
             message: "Invalid credentials"
