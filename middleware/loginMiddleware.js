@@ -23,7 +23,7 @@ async function loginMiddleware(req, res, next){
     }
 
     req.user = passMatch
-    req.data = userExist
+    req.data = existUser
     next()
 }
 
