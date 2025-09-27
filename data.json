@@ -21,14 +21,23 @@
       "date": "2025-09-07T11:00:34.591Z"
     }
   ],
+  
   "users": [
-    
     {
       "id": 1,
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "role": "Admin",
+      "password": "$2b$13$dmgzcgP1V/TNLa18FU4RQuQLHeCWN3isf5D9vb3J/s0Yh2Ks1RnlW",
+      "date": "2025-09-27",
+      "notifications": []
+    },
+    {
+      "id": 2,
       "name": "Test",
       "email": "test@gmail.com",
       "role": "user",
-      "password": "$2b$13$sOOo6BYNbkLHvZz.avTOfOpA41Yhki/52Fs5ffAtxg.QUJEB5dI7S",
+      "password": "$2b$13$WM0P8.fZ4UbIBCDPk21j1uhpLUi.luKsU0IbP2Moufo0nBdMgQxCS",
       "date": "2025-09-27",
       "notifications": []
     }
