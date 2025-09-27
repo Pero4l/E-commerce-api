@@ -1,5 +1,8 @@
 const {readDb, writeDb} = require("../utils/dbOperation")
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
+require('dotenv').config()
 
 
 async function register(req, res){
@@ -51,8 +54,13 @@ async function register(req, res){
         "data": newUser
     });
 
-
 }
+
+
+async function login(req, res) {
+    
+}
+
 
 
 module.exports = {
