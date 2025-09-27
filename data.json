@@ -1,0 +1,45 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Mouse",
+      "description": "Ergonomic wireless mouse with adjustable DPI.",
+      "instock": 25,
+      "price": "$10"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "productId": 4,
+      "productName": "Bluetooth Speaker",
+      "quantity": 4,
+      "price": "$50",
+      "total": 200,
+      "status": "processed",
+      "buyer": "ptb",
+      "date": "2025-09-07T11:00:34.591Z"
+    }
+  ],
+  "users": [
+    {
+      "role": "admin",
+      "name": "peter",
+      "pin": "1234",
+      "notifications": [
+        "📢 User ptb bought 4 Bluetooth Speaker(s) on 9/7/2025, 12:00:34 PM"
+      ]
+    },
+    {
+      "role": "user",
+      "name": "ptb",
+      "pin": "1234",
+      "notifications": [
+        "🛒 You purchased 4 Bluetooth Speaker(s) on 9/7/2025, 12:00:34 PM"
+      ]
+    }
+  ]
+}
+
+
+
