@@ -64,9 +64,6 @@
       "notifications": [
         {
           "notification": "Product added successfully"
-        },
-        {
-          "notification": "Product added successfully"
         }
       ]
     },
