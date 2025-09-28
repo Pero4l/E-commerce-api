@@ -4,7 +4,7 @@ async function authMiddleware(req, res, next) {
     const authHeader = req.headers['authorization']
 
      if(!authHeader){
-        return res.status(401).json({
+        return res.status(403).json({
             "sucess": false,
             "message": "No token provided"
         })
@@ -17,7 +17,7 @@ async function authMiddleware(req, res, next) {
         req.user = decoded
         next()
     } catch(err){
-        res.status(403).json({
+        res.status(401).json({
              "sucess": false,
             "message": "Invalid or expired token"
         })

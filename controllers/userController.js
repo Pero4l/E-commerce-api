@@ -62,16 +62,18 @@ async function register(req, res){
 
 async function login(req, res) {
 
-    const token = jwt.sign({userId: req.data.id}, process.env.JWT_SECRET, {expiresIn: '1h'})
+    const token = jwt.sign({userId: req.data.id, role: req.data.role}, process.env.JWT_SECRET, {expiresIn: '1h'})
 
     const userId = req.data.id
+    const role = req.data.role
     
     if(req.user){
         return res.status(200).json({
         "success": true,
         "message": "Login Successfully",
         "token": token,
-        "userId": userId
+        "userId": userId,
+        "role": role
     })
     }
     
