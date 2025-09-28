@@ -14,6 +14,30 @@
       "instock": 5,
       "price": "$500",
       "date": "2025-09-28"
+    },
+    {
+      "id": 3,
+      "name": "Shoe",
+      "description": "This is a uk shoe",
+      "instock": 15,
+      "price": "$200",
+      "date": "2025-09-28"
+    },
+    {
+      "id": 4,
+      "name": "Car",
+      "description": "This is a japan car",
+      "instock": 2,
+      "price": "$20,000",
+      "date": "2025-09-28"
+    },
+    {
+      "id": 5,
+      "name": "Lego",
+      "description": "This is a lego toy",
+      "instock": 27,
+      "price": "$230",
+      "date": "2025-09-28"
     }
   ],
   "orders": [
@@ -34,10 +58,17 @@
       "id": 1,
       "name": "Admin",
       "email": "admin@gmail.com",
-      "role": "Admin",
+      "role": "admin",
       "password": "$2b$13$dmgzcgP1V/TNLa18FU4RQuQLHeCWN3isf5D9vb3J/s0Yh2Ks1RnlW",
       "date": "2025-09-27",
-      "notifications": []
+      "notifications": [
+        {
+          "notification": "Product added successfully"
+        },
+        {
+          "notification": "Product added successfully"
+        }
+      ]
     },
     {
       "id": 2,

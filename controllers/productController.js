@@ -35,6 +35,14 @@ async function addProduct(req, res) {
          "message": "Product added successfully",
          "data": newProduct
     })
+
+
+    const notification = "Product added successfully"
+
+    data['users'][0].notifications.push({notification})
+     writeDb(data)
+
+
     
     
 }
