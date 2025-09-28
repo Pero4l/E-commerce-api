@@ -21,7 +21,6 @@
       "date": "2025-09-07T11:00:34.591Z"
     }
   ],
-  
   "users": [
     {
       "id": 1,
@@ -40,6 +39,17 @@
       "password": "$2b$13$WM0P8.fZ4UbIBCDPk21j1uhpLUi.luKsU0IbP2Moufo0nBdMgQxCS",
       "date": "2025-09-27",
       "notifications": []
+    },
+    {
+      "id": 3,
+      "name": "Joy",
+      "email": "joy@gmail.com",
+      "role": "user",
+      "password": "$2b$13$CzHs2o2JHeUYKxSOUYQSFeWpVTw46H6LHn868Zz7tiHmfpWranWV2",
+      "date": "2025-09-28",
+      "notifications": [
+        "Account created successfully"
+      ]
     }
   ]
 }
