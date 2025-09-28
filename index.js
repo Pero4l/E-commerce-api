@@ -3,6 +3,7 @@ const app = express()
 const PORT = 3000
 
 const userAuth = require('./router/user.route')
+const product = require('./router/product.route')
 
 app.use(express.json());
 
@@ -14,6 +15,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/auth', userAuth)
+app.use('/product', product)
 
 
 
