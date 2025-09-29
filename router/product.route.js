@@ -9,7 +9,7 @@ const {isAdmin} = require('../middleware/authPost')
 
 router.post('/add',authMiddleware, isAdmin, addProduct)
 router.patch('/edit', authMiddleware, isAdmin, editProduct)
-router.get('/products', authMiddleware, seeAllProducts)
+router.get('/seeall', authMiddleware, seeAllProducts)
 
 
 module.exports = router
