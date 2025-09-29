@@ -129,6 +129,11 @@ async function seeSingleProduct(req, res) {
 }
 
 
+async function buyProduct(params) {
+    
+}
+
+
 
 
 module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct}
