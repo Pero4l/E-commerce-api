@@ -70,9 +70,21 @@ async function editProduct(req, res) {
     }
 
     const date = new Date().toLocaleDateString('en-CA');
-    existProduct.name = name
-    existProduct.description = description
+    existProduct.name = name || existProduct.name
+    existProduct.description = description || existProduct.description
+    existProduct.instock = instock || existProduct.instock
+    existProduct.price = price || existProduct.price
 
+    res.status(200).json({
+         "success": true,
+         "message": "Product edited successfully"
+    })
+
+
+    const notification = "Product edited successfully"
+
+    data['users'][0].notifications.push({notification})
+     writeDb(data)
 
     
 
