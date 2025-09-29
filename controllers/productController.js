@@ -47,4 +47,37 @@ async function addProduct(req, res) {
     
 }
 
+
+async function editProduct(req, res) {
+    const{id, name, description, instock, price} = req.body
+
+    const data = readDb()
+
+    if(!id || !name.trim() || !description.trim() || !instock.trim() || !price.trim()){
+        return res.status(400).json({
+            "success": false,
+            "message": "All field are required"
+        })
+    }
+
+    const existProduct = data['products'].find((p)=> p.id === id)
+
+    if(!existProduct){
+        return res.status(400).json({
+            "success": false,
+            "message": "Product does not exist"
+        })
+    }
+
+    const date = new Date().toLocaleDateString('en-CA');
+    existProduct.name = name
+    existProduct.description = description
+
+
+    
+
+
+    
+}
+
 module.exports = {addProduct}
