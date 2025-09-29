@@ -105,4 +105,9 @@ async function seeAllProducts(req, res) {
     })
 }
 
+
+async function seeSingleProduct(req, res) {
+    const id = req.params.id
+}
+
 module.exports = {addProduct, editProduct, seeAllProducts}
