@@ -37,7 +37,7 @@ async function addProduct(req, res) {
     })
 
 
-    const notification = "Product added successfully"
+    const notification = `Product added successfully at ${date}`
 
     data['users'][0].notifications.push({notification})
      writeDb(data)
@@ -53,7 +53,7 @@ async function editProduct(req, res) {
 
     const data = readDb()
 
-    if(!id || !name.trim() || !description.trim() || !instock.trim() || !price.trim()){
+    if(!id || !name.trim() || !description.trim() || !instock || !price.trim()){
         return res.status(400).json({
             "success": false,
             "message": "All field are required"
@@ -81,7 +81,7 @@ async function editProduct(req, res) {
     })
 
 
-    const notification = "Product edited successfully"
+    const notification = `Product edited successfully at ${date}`
 
     data['users'][0].notifications.push({notification})
      writeDb(data)
@@ -92,4 +92,4 @@ async function editProduct(req, res) {
     
 }
 
-module.exports = {addProduct}
+module.exports = {addProduct, editProduct}
