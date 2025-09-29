@@ -107,7 +107,25 @@ async function seeAllProducts(req, res) {
 
 
 async function seeSingleProduct(req, res) {
-    const id = req.params.id
+    const {id} = req.params
+
+    const data = readDb()
+
+    const product = data['products'].find((p)=> p.id === id)
+
+    if(!product){
+        return res.status(404).json({
+            "success": false,
+            "message": "Product not found"
+        })
+
+    }else{
+        res.status(200).json({
+            "success": true,
+            "message": "Product found",
+            "data": product
+        })
+    }
 }
 
-module.exports = {addProduct, editProduct, seeAllProducts}
+module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct}
