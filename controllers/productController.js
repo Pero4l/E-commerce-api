@@ -111,7 +111,7 @@ async function seeSingleProduct(req, res) {
 
     const data = readDb()
 
-    const product = data['products'].find((p)=> p.id === id)
+    const product = data['products'].find((p)=> p.id === Number(id))
 
     if(!product){
         return res.status(404).json({
@@ -127,5 +127,8 @@ async function seeSingleProduct(req, res) {
         })
     }
 }
+
+
+
 
 module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct}
