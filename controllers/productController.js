@@ -92,4 +92,17 @@ async function editProduct(req, res) {
     
 }
 
-module.exports = {addProduct, editProduct}
+
+async function seeAllProducts(req, res) {
+    const data = readDb()
+
+    const allProducts = data['products']
+
+    res.status(200).json({
+        "success": true,
+        "message": "Gotten all products successfully",
+        "data": allProducts
+    })
+}
+
+module.exports = {addProduct, editProduct, seeAllProducts}
