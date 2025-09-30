@@ -255,10 +255,39 @@ async function processOrder(req, res) {
     const{id} = req.body
     const data = readDb()
 
-   
+     const orderExist = data['orders'].find((o)=> o.id === id)
+     
+
+     if(!orderExist){
+        return res.status(404).json({
+            "success": false,
+            "message": "Order not found",
+        })
+     }
+
+     orderExist.status = "Processed"
+     const theUser = data['users'].find((u)=> u.id === orderExist.buyerId)
+     theUser.status = "Processed"
+
+     res.status(200).json({
+            "success": true,
+            "message": "Order processed sucessfully",
+        })
+
+
+    const date = new Date().toLocaleDateString('en-CA');
+
+    data['users'][0].notifications.push(`Oder with id:${orderExist.orderId} by ${orderExist.buyer} has been processed successfully on the ${date}`)
+
+    theUser.notifications.push(`Your order of ${quantity} of ${productName}(s) has been processed successfully on the ${date}`)
+
+     writeDb(data)
+
+
+
 }
 
 
 
 
-module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders, cart}
+module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders, cart, processOrder}
