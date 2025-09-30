@@ -184,6 +184,15 @@ async function buyProduct(req, res) {
         date
     }
 
+    const cart = {
+        productName,
+        quantity,
+        totalPrice,
+        status,
+        date
+    }
+
+
     data['orders'].push(order)
 
     try{
@@ -206,13 +215,9 @@ async function buyProduct(req, res) {
 
      const theUser = data['users'].find((u)=> u.id === buyerId)
       theUser.notifications.push({purchaseNotification})
+      theUser.cart.push(cart)
 
      writeDb(data)
-
-     
-
-
-
 
 }
 
@@ -231,10 +236,20 @@ async function seeAllOrders(req, res) {
 
 
 async function cart(req, res) {
+    const data = readDb()
+    const user = req.user
+    const theUser = data['users'].find((u)=> u.id === user.userId)
+    const cart = theUser.cart
+
+    res.status(200).json({
+        "success": true,
+        "message": "Gotten all orders successfully",
+        "data": cart
+    })
     
 }
 
 
 
 
-module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders}
+module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders, cart}
