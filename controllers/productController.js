@@ -255,7 +255,7 @@ async function processOrder(req, res) {
     const{id} = req.body
     const data = readDb()
 
-     const orderExist = data['orders'].find((o)=> o.id === id)
+     const orderExist = data['orders'].find((o)=> o.orderId === id)
      
 
      if(!orderExist){
