@@ -232,4 +232,7 @@ async function seeAllOrders(req, res) {
 
 
 
+
+
+
 module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders}
