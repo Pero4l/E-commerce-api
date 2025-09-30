@@ -43,6 +43,7 @@ async function addProduct(req, res) {
      writeDb(data)
 
 
+
     
     
 }
@@ -129,11 +130,85 @@ async function seeSingleProduct(req, res) {
 }
 
 
-async function buyProduct(params) {
-    
+async function buyProduct(req, res) {
+    const {id, quantity} = req.body
+    const data = readDb()
+
+    const product = data['products'].find((p) => p.id === id)
+
+    if(!product){
+        return res.status(404).json({
+            "success": false,
+            "message": "Product not found"
+        })
+    }
+
+    if(quantity > product.instock){
+        return res.status(400).json({
+            "success": false,
+            "message": "Quantity can't be greater than available product"
+        })
+    }
+
+    const user = req.user
+
+    product.instock -= quantity
+    const productName = product.name
+    const productPrice = product.price
+    const totalPrice = product.price * quantity
+    const productId = product.id
+    const orderId = data['orders'].length + 1;
+    const status = "Pending"
+    const buyerId = user.userId
+    const buyer = user.currentUser
+    const date = new Date().toLocaleDateString('en-CA');
+
+    const order = {
+        orderId,
+        productId,
+        productName,
+        quantity,
+        productPrice,
+        totalPrice,
+        status,
+        buyerId,
+        buyer,
+        date
+    }
+
+    data['orders'].push(order)
+
+    try{
+        writeDb(data)
+    } catch (err){
+        console.log("Error buying product");
+        
+    }
+
+    res.status(201).json({
+        "success": true,
+        "message": "Product bought successfully"
+    })
+
+    const orderNotification = `An order with id:${orderId} have been placed by ${buyer} with user id:${buyerId}, bought ${quantity} of ${productName} on the ${date}`
+    const purchaseNotification = `You purchased ${quantity} ${productName}(s) on ${date}, your order is being processed`
+
+    data['users'][0].notifications.push({orderNotification})
+
+     writeDb(data)
+
+      const theUser = data['users'].find((u)=> u.id === buyerId)
+
+      data.theUser.notifications.push({purchaseNotification})
+
+      writeDb(data)
+
+
+
+
 }
 
 
 
 
-module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct}
+module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct}
