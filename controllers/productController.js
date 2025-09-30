@@ -291,6 +291,27 @@ async function processOrder(req, res) {
 }
 
 
+async function searchOrder(req, res) {
+    const {id} = req.body
+    const data =  readDb()
+
+    const order = data['orders'].find((o)=> o.orderId === id)
+    if(!order){
+        return res.status(404).json({
+            "success": false,
+            "message": `Order not found with ID:${id}`
+        })
+    }
+
+    res.status(200).json({
+        "success": true,
+        "message": `Order found with ID:${id}`,
+        "data": order
+    })
+    
+}
 
 
-module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders, cart, processOrder}
+
+
+module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders, cart, processOrder, searchOrder}
