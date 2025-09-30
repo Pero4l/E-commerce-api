@@ -134,6 +134,13 @@ async function buyProduct(req, res) {
     const {id, quantity} = req.body
     const data = readDb()
 
+    if(quantity === 0){
+        return res.status(404).json({
+            "success": false,
+            "message": "Quantity can't be 0"
+        })
+    }
+
     const product = data['products'].find((p) => p.id === id)
 
     if(!product){
@@ -207,6 +214,12 @@ async function buyProduct(req, res) {
 
 
 
+}
+
+
+async function seeAllOrders(req, res) {
+    const data = readDb()
+    
 }
 
 
