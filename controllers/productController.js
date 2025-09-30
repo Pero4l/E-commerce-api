@@ -155,9 +155,10 @@ async function buyProduct(req, res) {
     product.instock -= quantity
     const productName = product.name
     const productPrice = product.price
-    const totalPrice = product.price * quantity
+    const numericPrice = Number(productPrice.replace(/[^0-9.-]+/g,""))
+    const totalPrice = numericPrice * quantity
     const productId = product.id
-    const orderId = data['orders'].length + 1;
+    const orderId = data['orders'].length + 1
     const status = "Pending"
     const buyerId = user.userId
     const buyer = user.currentUser
@@ -187,7 +188,8 @@ async function buyProduct(req, res) {
 
     res.status(201).json({
         "success": true,
-        "message": "Product bought successfully"
+        "message": "Product bought successfully",
+        "data": order
     })
 
     const orderNotification = `An order with id:${orderId} have been placed by ${buyer} with user id:${buyerId}, bought ${quantity} of ${productName} on the ${date}`
@@ -195,13 +197,12 @@ async function buyProduct(req, res) {
 
     data['users'][0].notifications.push({orderNotification})
 
+     const theUser = data['users'].find((u)=> u.id === buyerId)
+      theUser.notifications.push({purchaseNotification})
+
      writeDb(data)
 
-      const theUser = data['users'].find((u)=> u.id === buyerId)
-
-      data.theUser.notifications.push({purchaseNotification})
-
-      writeDb(data)
+     
 
 
 

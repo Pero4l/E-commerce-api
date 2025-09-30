@@ -41,9 +41,9 @@
     },
     {
       "id": 6,
-      "name": "Lego pro", 
+      "name": "Lego pro",
       "description": "This is a pro lego toy",
-      "instock": 67,
+      "instock": 47,
       "price": "$250",
       "date": "2025-09-29"
     }
@@ -59,6 +59,18 @@
       "status": "processed",
       "buyer": "ptb",
       "date": "2025-09-07T11:00:34.591Z"
+    },
+    {
+      "orderId": 2,
+      "productId": 6,
+      "productName": "Lego pro",
+      "quantity": 10,
+      "productPrice": "$250",
+      "totalPrice": 2500,
+      "status": "Pending",
+      "buyerId": 2,
+      "buyer": "Test",
+      "date": "2025-09-30"
     }
   ],
   "users": [
@@ -78,6 +90,12 @@
         },
         {
           "notification": "Product edited successfully"
+        },
+        {
+          "orderNotification": "An order with id:2 have been placed by Test with user id:2, bought 10 of Lego pro on the 2025-09-30"
+        },
+        {
+          "orderNotification": "An order with id:2 have been placed by Test with user id:2, bought 10 of Lego pro on the 2025-09-30"
         }
       ]
     },
@@ -88,7 +106,11 @@
       "role": "user",
       "password": "$2b$13$WM0P8.fZ4UbIBCDPk21j1uhpLUi.luKsU0IbP2Moufo0nBdMgQxCS",
       "date": "2025-09-27",
-      "notifications": []
+      "notifications": [
+        {
+          "purchaseNotification": "You purchased 10 Lego pro(s) on 2025-09-30, your order is being processed"
+        }
+      ]
     },
     {
       "id": 3,
