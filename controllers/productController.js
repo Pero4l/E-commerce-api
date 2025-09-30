@@ -243,7 +243,7 @@ async function cart(req, res) {
 
     res.status(200).json({
         "success": true,
-        "message": "Gotten all orders successfully",
+        "message": "Gotten cart successfully",
         "data": cart
     })
     
