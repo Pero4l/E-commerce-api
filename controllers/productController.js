@@ -209,13 +209,12 @@ async function buyProduct(req, res) {
         "data": order
     })
 
-    const orderNotification = `An order with id:${orderId} have been placed by ${buyer} with user id:${buyerId}, bought ${quantity} of ${productName} on the ${date}`
-    const purchaseNotification = `You purchased ${quantity} ${productName}(s) on ${date}, your order is being processed`
+   
 
-    data['users'][0].notifications.push({orderNotification})
+    data['users'][0].notifications.push({notification: `An order with id:${orderId} have been placed by ${buyer} with user id:${buyerId}, bought ${quantity} of ${productName} on the ${date}`})
 
      const theUser = data['users'].find((u)=> u.id === buyerId)
-      theUser.notifications.push({purchaseNotification})
+      theUser.notifications.push({notification: `You purchased ${quantity} ${productName}(s) on ${date}, your order is being processed`})
       theUser.cart.push(cart)
 
      writeDb(data)
@@ -252,39 +251,43 @@ async function cart(req, res) {
 
 
 async function processOrder(req, res) {
-    const{id} = req.body
-    const data = readDb()
+    const {id} = req.body;
+    const data = readDb();
 
-     const orderExist = data['orders'].find((o)=> o.orderId === id)
-     
+    const orderExist = data['orders'].find((o) => o.orderId === id);
 
-     if(!orderExist){
+    if (!orderExist) {
         return res.status(404).json({
             "success": false,
             "message": "Order not found",
-        })
-     }
+        });
+    }
 
-     orderExist.status = "Processed"
-     const theUser = data['users'].find((u)=> u.id === orderExist.buyerId)
-     theUser.status = "Processed"
+    orderExist.status = "Processed";
+    const theUser = data['users'].find((u) => u.id === orderExist.buyerId);
 
-     res.status(200).json({
-            "success": true,
-            "message": "Order processed sucessfully",
-        })
+    if (theUser && Array.isArray(theUser.cart)) {
+        const cartOrder = theUser.cart.find((c) => Number(c.orderId) === Number(id));
+        if (cartOrder) cartOrder.status = "Processed";
+    }
 
+    res.status(200).json({
+        "success": true,
+        "message": "Order processed successfully",
+        "data": orderExist
+    });
 
     const date = new Date().toLocaleDateString('en-CA');
+    const quantity = orderExist.quantity;
+    const productName = orderExist.productName;
 
-    data['users'][0].notifications.push(`Oder with id:${orderExist.orderId} by ${orderExist.buyer} has been processed successfully on the ${date}`)
+    data['users'][0].notifications.push({notification: `Order with id:${orderExist.orderId} by ${orderExist.buyer} has been processed successfully on the ${date}`});
 
-    theUser.notifications.push(`Your order of ${quantity} of ${productName}(s) has been processed successfully on the ${date}`)
+    if (theUser) {
+        theUser.notifications.push({notification: `Your order of ${quantity} ${productName}(s) has been processed successfully on the ${date}`});
+    }
 
-     writeDb(data)
-
-
-
+    writeDb(data);
 }
 
 

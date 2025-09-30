@@ -67,7 +67,7 @@
       "quantity": 10,
       "productPrice": "$250",
       "totalPrice": 2500,
-      "status": "Pending",
+      "status": "Processed",
       "buyerId": 2,
       "buyer": "Test",
       "date": "2025-09-30"
@@ -98,7 +98,10 @@
           "orderNotification": "An order with id:2 have been placed by Test with user id:2, bought 10 of Lego pro on the 2025-09-30"
         },
         {
-          "orderNotification": "An order with id:2 have been placed by Test with user id:2, bought 10 of Lego pro on the 2025-09-30"
+          "notification": "Order with id:2 by Test has been processed successfully on the 2025-09-30"
+        },
+        {
+          "notification": "Order with id:2 by Test has been processed successfully on the 2025-09-30"
         }
       ]
     },
@@ -120,10 +123,10 @@
       ],
       "notifications": [
         {
-          "purchaseNotification": "You purchased 10 Lego pro(s) on 2025-09-30, your order is being processed"
+          "notification": "Your order of 10 Lego pro(s) has been processed successfully on the 2025-09-30"
         },
         {
-          "purchaseNotification": "You purchased 10 Lego pro(s) on 2025-09-30, your order is being processed"
+          "notification": "Your order of 10 Lego pro(s) has been processed successfully on the 2025-09-30"
         }
       ]
     },

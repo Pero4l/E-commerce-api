@@ -45,8 +45,7 @@ async function register(req, res){
 
     const newUser = {id, name, email, role, password: hashedPassword, date, cart: [], notifications: []}
 
-    const notification = "Account created successfully"
-    newUser['notifications'].push(notification)
+    newUser['notifications'].push({notification:`Account created successfully`})
 
     data['users'].push(newUser)
     writeDb(data)
