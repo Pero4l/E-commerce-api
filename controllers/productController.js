@@ -295,7 +295,7 @@ async function searchOrder(req, res) {
     const {id} = req.body
     const data =  readDb()
 
-    const order = data['orders'].find((o)=> o.orderId === id)
+    const order = data['orders'].find((o)=> o.orderId === id);
     if(!order){
         return res.status(404).json({
             "success": false,
