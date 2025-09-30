@@ -43,7 +43,7 @@ async function register(req, res){
     const role = "user"
     const date = new Date().toLocaleDateString('en-CA');
 
-    const newUser = {id, name, email, role, password: hashedPassword, date, notifications: []}
+    const newUser = {id, name, email, role, password: hashedPassword, date, cart: [], notifications: []}
 
     const notification = "Account created successfully"
     newUser['notifications'].push(notification)

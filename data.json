@@ -106,6 +106,7 @@
       "role": "user",
       "password": "$2b$13$WM0P8.fZ4UbIBCDPk21j1uhpLUi.luKsU0IbP2Moufo0nBdMgQxCS",
       "date": "2025-09-27",
+      "cart": [],
       "notifications": [
         {
           "purchaseNotification": "You purchased 10 Lego pro(s) on 2025-09-30, your order is being processed"
@@ -119,6 +120,7 @@
       "role": "user",
       "password": "$2b$13$CzHs2o2JHeUYKxSOUYQSFeWpVTw46H6LHn868Zz7tiHmfpWranWV2",
       "date": "2025-09-28",
+      "cart": [],
       "notifications": [
         "Account created successfully"
       ]
