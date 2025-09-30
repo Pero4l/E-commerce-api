@@ -185,6 +185,7 @@ async function buyProduct(req, res) {
     }
 
     const cart = {
+        orderId,
         productName,
         quantity,
         totalPrice,
@@ -247,6 +248,14 @@ async function cart(req, res) {
         "data": cart
     })
     
+}
+
+
+async function processOrder(req, res) {
+    const{id} = req.body
+    const data = readDb()
+
+   
 }
 
 
