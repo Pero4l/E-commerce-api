@@ -219,10 +219,17 @@ async function buyProduct(req, res) {
 
 async function seeAllOrders(req, res) {
     const data = readDb()
+    const allOrders = data['orders']
+
+    res.status(200).json({
+        "success": true,
+        "message": "Gotten all orders successfully",
+        "data": allOrders
+    })
     
 }
 
 
 
 
-module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct}
+module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders}
