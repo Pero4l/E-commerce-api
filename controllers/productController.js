@@ -312,6 +312,37 @@ async function searchOrder(req, res) {
 }
 
 
+async function deletProduct(req, res) {
+    const {id} = req.body
+    const data = readDb()
+
+    const product = data['products'].find((p) => p.id === id)
+
+    if (!product) {
+        return res.status(400).json({
+        success: false,
+        message: "Could not delete product",
+        });
+    }
+
+    data['products'] = data['products'].filter((p)=> p.id !== id)
+
+    writeDb(data)
+
+    res.status(200).json({
+    "success": true,
+    "message": "Product deleted successfully",
+    "data": data['products'],
+  });
+
+  data['users'][0].notifications.push({notification: `Product ID:${id} deleted successfully`})
+
+  writeDb(data)
+
+    
+}
 
 
-module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders, cart, processOrder, searchOrder}
+
+
+module.exports = {addProduct, editProduct, seeAllProducts, seeSingleProduct, buyProduct, seeAllOrders, cart, processOrder, searchOrder, deletProduct}

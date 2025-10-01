@@ -91,6 +91,21 @@
         },
         {
           "notification": "Order with id:2 by Joy has been processed successfully on the 2025-09-30"
+        },
+        {
+          "notification": "Product added successfully at 2025-09-30"
+        },
+        {
+          "notification": "Product ID:7 deleted successfully"
+        },
+        {
+          "notification": "Product ID:7 deleted successfully"
+        },
+        {
+          "notification": "Product ID:7 deleted successfully"
+        },
+        {
+          "notification": "Product ID:7 deleted successfully"
         }
       ]
     },
