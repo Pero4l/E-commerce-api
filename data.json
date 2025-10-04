@@ -19,7 +19,7 @@
       "id": 3,
       "name": "Shoe",
       "description": "This is a uk shoe",
-      "instock": 14,
+      "instock": 13,
       "price": "$200",
       "date": "2025-09-28"
     },
@@ -51,7 +51,7 @@
       "id": 8,
       "name": "Spoon",
       "description": "This is a spoon",
-      "instock": 90,
+      "instock": 70,
       "price": "$2500",
       "date": "2025-10-04"
     }
@@ -80,6 +80,30 @@
       "buyerId": 3,
       "buyer": "Joy",
       "date": "2025-09-30"
+    },
+    {
+      "orderId": 3,
+      "productId": 3,
+      "productName": "Shoe",
+      "quantity": 1,
+      "productPrice": "$200",
+      "totalPrice": 200,
+      "status": "Pending",
+      "buyerId": 2,
+      "buyer": "Test",
+      "date": "2025-10-04"
+    },
+    {
+      "orderId": 4,
+      "productId": 8,
+      "productName": "Spoon",
+      "quantity": 20,
+      "productPrice": "$2500",
+      "totalPrice": 50000,
+      "status": "Pending",
+      "buyerId": 2,
+      "buyer": "Test",
+      "date": "2025-10-04"
     }
   ],
   "users": [
@@ -126,6 +150,12 @@
         },
         {
           "notification": "Product edited successfully at 2025-10-04"
+        },
+        {
+          "notification": "An order with id:3 have been placed by Test with user id:2, bought 1 of Shoe on the 2025-10-04"
+        },
+        {
+          "notification": "An order with id:4 have been placed by Test with user id:2, bought 20 of Spoon on the 2025-10-04"
         }
       ]
     },
@@ -136,8 +166,32 @@
       "role": "user",
       "password": "$2b$13$WM0P8.fZ4UbIBCDPk21j1uhpLUi.luKsU0IbP2Moufo0nBdMgQxCS",
       "date": "2025-09-27",
-      "cart": [],
-      "notifications": []
+      "cart": [
+        {
+          "orderId": 3,
+          "productName": "Shoe",
+          "quantity": 1,
+          "totalPrice": 200,
+          "status": "Pending",
+          "date": "2025-10-04"
+        },
+        {
+          "orderId": 4,
+          "productName": "Spoon",
+          "quantity": 20,
+          "totalPrice": 50000,
+          "status": "Pending",
+          "date": "2025-10-04"
+        }
+      ],
+      "notifications": [
+        {
+          "notification": "You purchased 1 Shoe(s) on 2025-10-04, your order is being processed"
+        },
+        {
+          "notification": "You purchased 20 Spoon(s) on 2025-10-04, your order is being processed"
+        }
+      ]
     },
     {
       "id": 3,
