@@ -88,7 +88,7 @@
       "quantity": 1,
       "productPrice": "$200",
       "totalPrice": 200,
-      "status": "Pending",
+      "status": "Processed",
       "buyerId": 2,
       "buyer": "Test",
       "date": "2025-10-04"
@@ -156,6 +156,9 @@
         },
         {
           "notification": "An order with id:4 have been placed by Test with user id:2, bought 20 of Spoon on the 2025-10-04"
+        },
+        {
+          "notification": "Order with id:3 by Test has been processed successfully on the 2025-10-04"
         }
       ]
     },
@@ -172,7 +175,7 @@
           "productName": "Shoe",
           "quantity": 1,
           "totalPrice": 200,
-          "status": "Pending",
+          "status": "Processed",
           "date": "2025-10-04"
         },
         {
@@ -190,6 +193,9 @@
         },
         {
           "notification": "You purchased 20 Spoon(s) on 2025-10-04, your order is being processed"
+        },
+        {
+          "notification": "Your order of 1 Shoe(s) has been processed successfully on the 2025-10-04"
         }
       ]
     },
