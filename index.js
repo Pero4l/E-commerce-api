@@ -1,6 +1,8 @@
 const express = require('express');
+require('dotenv').config
 const app = express()
-const PORT = 3000
+
+
 
 const userAuth = require('./router/user.route')
 const product = require('./router/product.route')
@@ -18,7 +20,7 @@ app.use('/auth', userAuth)
 app.use('/product', product)
 
 
-
+const PORT = process.env.PORT
 app.listen(PORT, () =>{
     console.log(`Server Running on PORT:${PORT}`);
     
