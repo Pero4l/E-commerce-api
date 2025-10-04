@@ -48,14 +48,6 @@
       "date": "2025-09-29"
     },
     {
-      "id": 7,
-      "name": "Laptop",
-      "description": "This is a pro Laptop",
-      "instock": 10,
-      "price": "$2500",
-      "date": "2025-10-04"
-    },
-    {
       "id": 8,
       "name": "Spoon",
       "description": "This is a spoon",
@@ -128,6 +120,9 @@
         },
         {
           "notification": "Product added successfully at 2025-10-04"
+        },
+        {
+          "notification": "Product ID:7 deleted successfully"
         }
       ]
     },
